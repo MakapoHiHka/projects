@@ -27,7 +27,20 @@ class chet{
             return -1;
         }
         else {
-            return (this.a * this.b / this.c);
+            int y = (int)(this.a * this.b / this.c);
+            if (y == 1 || y == 0){
+                return 1;
+            }
+            else if(y < 0){
+                return -1;
+            }
+            else{
+                int result = 1;
+                for (int i = 1; i <= y; i++) {
+                    result *= i;
+                }
+                return result;
+            }
         }
     }
 }

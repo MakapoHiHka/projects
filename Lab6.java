@@ -6,7 +6,6 @@ class Reader{
     int facult;
     String birth;
     String Phone;
-    int Kol;
     Reader(String FIO, int Number, int facult, String birth, String Phone){
         this.FIO = FIO;
         this.Number = Number;
@@ -16,26 +15,34 @@ class Reader{
     }
 
     void takeBook(int Kol){
-        this.Kol += Kol;
-        System.out.println(this.FIO + " взял " + Kol + " книги");
-    }
-    void takeBook(String[] Books){
-        System.out.print(this.FIO + "взял книги:" + Books[0]);
-        for(int i = 1; i < Books.length; i++){
-            System.out.print(", " + Books[i]);
+        if (Kol >= 10 && Kol <= 19 || Kol % 10 >= 5) {
+            System.out.println(this.FIO + " взял " + Kol + " книг");
         }
-        System.out.println(".");
+        else if(Kol % 10 == 1){
+            System.out.println(this.FIO + " взял " + Kol + " книгу");
+        }
+        else if (Kol % 10 >= 2 && Kol % 10 <= 4 ) {
+            System.out.println(this.FIO + " взял " + Kol + " книги");
+        }
+    }
+    void takeBook(String... Books){
+        System.out.println(this.FIO + "взял книги:" + String.join(", " , Books));
+
     }
     void returnBook(int Kol){
-        this.Kol += Kol;
-        System.out.println(this.FIO + " вернул " + Kol + " книги");
-    }
-    void returnBook(String[] Books){
-        System.out.print(this.FIO + "вернул книги:" + Books[0]);
-        for(int i = 1; i < Books.length; i++){
-            System.out.print(", " + Books[i]);
+        if (Kol >= 10 && Kol <= 19 || Kol % 10 >= 5) {
+            System.out.println(this.FIO + " вернул " + Kol + " книг");
         }
-        System.out.println(".");
+        else if(Kol % 10 == 1){
+            System.out.println(this.FIO + " вернул " + Kol + " книгу");
+        }
+        else if (Kol % 10 >= 2 && Kol % 10 <= 4 ) {
+            System.out.println(this.FIO + " вернул " + Kol + " книги");
+        }
+    }
+    void returnBook(String... Books){
+        System.out.println(this.FIO + "вернул книги:" + String.join(", " , Books));
+
     }
 }
 public class Main {
@@ -43,7 +50,6 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int num;
         int kol;
-        String Book;
         Reader reader0 = new Reader("Иванов Д.Д.",1,4, "22.06.1994", "+71112221212");
         Reader reader1 = new Reader("Глазков А.А.",2,4, "24.12.1996", "+72221112121");
         Reader reader2 = new Reader("Гармаш М.К.",3,4, "07.03.1993", "+73331113131");
