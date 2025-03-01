@@ -15,10 +15,20 @@ class chet{
         return this.a * 3 + 5;
     }
     double Podchet2(){
-        return (this.a + this.b)/(this.a - this.b);
+        if ((this.a == this.b)){
+            return -1;
+        }
+        else {
+            return (this.a + this.b) / (this.a - this.b);
+        }
     }
     double Podchet3(){
-        return (this.a* this.b / this.c);
+        if (this.c == 0){
+            return -1;
+        }
+        else {
+            return (this.a * this.b / this.c);
+        }
     }
 }
 public class Main {
@@ -31,8 +41,8 @@ public class Main {
         System.out.println("ВВедите c:");
         double c = in.nextDouble();
         chet o1 = new chet(a, b, c);
-        chet o2 = new chet(b, c, a);
-        chet o3 = new chet(c, a, b);
+        chet o2 = new chet(a, b, c);
+        chet o3 = new chet(a, b, c);
         System.out.println(o1.Podchet1());
         System.out.println(o2.Podchet2());
         System.out.println(o3.Podchet3());
